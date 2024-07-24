@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/protobuf3-to-di
 
 Home: https://github.com/kaporzhu/protobuf-to-dict
 
-Package license: Public Domain
+Package license: Unlicense 
 
 Summary: Ben Hodgson: A teeny Python library for creating Python dicts from protocol buffers and the reverse.
 
