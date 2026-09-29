@@ -10,29 +10,28 @@ source:
   sha256: 1e42c25b5afb5868e3a9b1962811077e492c17557f9c66f0fe40d821375d2b5a
 
 build:
-  number: 10
-  script: "{{ PYTHON }} -m pip install . -vv"
+  number: 11
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation"
 
 requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - pip
-    - python
+    - python {{ python_min }}
     - setuptools
   run:
     - protobuf >=2.3.0
-    - python
+    - python >={{ python_min }}
     - six
 
 test:
   imports:
     - protobuf_to_dict
   requires:
-    - coverage
-    - nose >=1.0
-    - nosexcover
+    - pip
+    - python {{ python_min }}
+  commands:
+    - pip check
 
 about:
   home: "https://github.com/kaporzhu/protobuf-to-dict"
